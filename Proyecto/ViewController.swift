@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var imgEarth: UIImageView!
     @IBOutlet weak var imgPlanetOn: UIImageView!
     @IBOutlet weak var imgMars: UIImageView!
+    @IBOutlet weak var imgMars2: UIImageView!
     @IBOutlet weak var imgJupiter: UIImageView!
 
     var secuenciaEarth : [UIImage] = []
@@ -72,6 +73,15 @@ class ViewController: UIViewController {
         imgMars.animationImages = secuenciaMars
         imgMars.animationDuration = 1.0
         imgMars.startAnimating()
+        
+        for i in 1...10{
+            let imagen = UIImage(named: "MARTENO\(i)")
+            secuenciaMars.append(imagen!)
+        }
+        imgMars2.animationImages = secuenciaMars
+        imgMars2.animationDuration = 1.0
+        imgMars2.startAnimating()
+        
         for i in 1...10{
             let imagen = UIImage(named: "SATURNONO\(i)")
             secuenciaSaturno.append(imagen!)
@@ -128,6 +138,27 @@ class ViewController: UIViewController {
         imgPlanetOn.animationDuration = 1.0
         imgPlanetOn.startAnimating()
     }
+    
+    @IBAction func doTapMars2(_ sender: Any) {
+        lblSelect.text = "Mars"
+        do{
+            reproductor = try AVAudioPlayer(contentsOf:
+                url_marte!, fileTypeHint: AVFileType.mp3.rawValue)
+            reproductor?.play()
+        } catch let error{
+            print(error.localizedDescription)
+        }
+        secuenciaPlanetOn = []
+        for i in 1...10{
+            let imagen = UIImage(named: "MARTE\(i)")
+            secuenciaPlanetOn.append(imagen!)
+        }
+        
+        imgPlanetOn.animationImages = secuenciaPlanetOn
+        imgPlanetOn.animationDuration = 1.0
+        imgPlanetOn.startAnimating()
+    }
+    
     @IBAction func doTapJupiter(_ sender: Any) {
         lblSelect.text = "Jupiter"
         do{
