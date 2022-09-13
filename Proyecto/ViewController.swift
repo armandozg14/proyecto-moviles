@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         do{
             reproductorFondo = try AVAudioPlayer(contentsOf:
                 url_musica!, fileTypeHint: AVFileType.mp3.rawValue)
-            reproductorFondo?.volume = 0.5
+            reproductorFondo?.volume = 0.2
             reproductorFondo?.play()
         } catch let error{
             print(error.localizedDescription)
@@ -139,6 +139,7 @@ class ViewController: UIViewController {
         imgPlanetOn.startAnimating()
     }
     
+    
     @IBAction func doTapMars2(_ sender: Any) {
         lblSelect.text = "Mars"
         do{
@@ -155,7 +156,7 @@ class ViewController: UIViewController {
         }
         
         imgPlanetOn.animationImages = secuenciaPlanetOn
-        imgPlanetOn.animationDuration = 1.0
+        imgPlanetOn.animationDuration = 2.0
         imgPlanetOn.startAnimating()
     }
     
